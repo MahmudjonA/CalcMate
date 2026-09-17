@@ -1,16 +1,59 @@
-# Calculator
+# CalcMate
 
-A new Flutter project.
+Flutter’da yozilgan sodda va chiroyli kalkulyator ilovasi. Toza arxitektura,
+jonli hisoblash, hisoblar tarixi va light/dark tema qo‘llab-quvvatlaydi.
 
-## Getting Started
+## Imkoniyatlar
 
-This project is a starting point for a Flutter application.
+- Asosiy amallar: `+`, `−`, `×`, `÷`, qavslar `( )` va kasr sonlar
+- Qo‘shimcha amallar: foiz `%`, kvadrat ildiz `√`, kvadrat `x²`, ishora `+/−`
+- **Jonli natija** — `=` bosmasdan turib javob ko‘rinib turadi
+- **Hisoblar tarixi** — bajarilgan amallar saqlanadi, bosib qayta yuklash mumkin
+- **Light / Dark tema** — yuqoridagi tugma orqali almashtiriladi
+- Xato kiritishdan himoya: ketma-ket amallar, ikkita nuqta, nol ustiga bo‘lish
 
-A few resources to get you started if this is your first Flutter project:
+## Loyiha tuzilmasi
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+lib/
+├── main.dart                       # Kirish nuqtasi
+├── app.dart                        # MaterialApp + tema holati
+├── pages/
+│   └── calculator_page.dart        # Asosiy UI
+├── helpers/
+│   └── calculator_controller.dart  # Hisoblash mantig'i (UI'dan ajratilgan)
+├── widgets/
+│   └── calculator_button.dart      # Qayta ishlatiladigan tugma
+└── core/
+    ├── color/app_colors.dart       # Ranglar
+    ├── theme/theme.dart            # Light/Dark temalar
+    └── responcive/app_responsive.dart  # Ekranga moslashuvchi o'lchamlar
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hisoblash mantig‘i (`CalculatorController`) UI’dan to‘liq ajratilgan, shuning
+uchun unit testlar bilan qamrab olingan.
+
+## Ishga tushirish
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Testlar
+
+```bash
+flutter test
+```
+
+Controller mantig‘i uchun 18 ta unit test mavjud (`test/`).
+
+## Ishlatilgan paketlar
+
+- [`math_expressions`](https://pub.dev/packages/math_expressions) — matematik
+  ifodalarni tahlil qilish va hisoblash
+- `cupertino_icons`
+
+---
+
+Ilova identifikatori: `com.bit_vant.calcmate`

@@ -29,11 +29,14 @@ class CalcButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(appH(15)),
         ),
         child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: appH(30),
-              color: textColor,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: appH(30),
+                color: textColor,
+              ),
             ),
           ),
         ),
