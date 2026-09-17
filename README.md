@@ -1,59 +1,59 @@
 # CalcMate
 
-Flutter’da yozilgan sodda va chiroyli kalkulyator ilovasi. Toza arxitektura,
-jonli hisoblash, hisoblar tarixi va light/dark tema qo‘llab-quvvatlaydi.
+A simple and clean calculator app built with Flutter. Clean architecture,
+live calculation, calculation history, and light/dark theme support.
 
-## Imkoniyatlar
+## Features
 
-- Asosiy amallar: `+`, `−`, `×`, `÷`, qavslar `( )` va kasr sonlar
-- Qo‘shimcha amallar: foiz `%`, kvadrat ildiz `√`, kvadrat `x²`, ishora `+/−`
-- **Jonli natija** — `=` bosmasdan turib javob ko‘rinib turadi
-- **Hisoblar tarixi** — bajarilgan amallar saqlanadi, bosib qayta yuklash mumkin
-- **Light / Dark tema** — yuqoridagi tugma orqali almashtiriladi
-- Xato kiritishdan himoya: ketma-ket amallar, ikkita nuqta, nol ustiga bo‘lish
+- Basic operations: `+`, `−`, `×`, `÷`, parentheses `( )`, and decimal numbers
+- Extra operations: percent `%`, square root `√`, square `x²`, sign toggle `+/−`
+- **Live result** — the answer is shown before pressing `=`
+- **Calculation history** — past calculations are saved and can be reused by tapping
+- **Light / Dark theme** — toggled via the button at the top
+- Input protection: consecutive operators, double decimal points, division by zero
 
-## Loyiha tuzilmasi
+## Project structure
 
 ```
 lib/
-├── main.dart                       # Kirish nuqtasi
-├── app.dart                        # MaterialApp + tema holati
+├── main.dart                       # Entry point
+├── app.dart                        # MaterialApp + theme state
 ├── pages/
-│   └── calculator_page.dart        # Asosiy UI
+│   └── calculator_page.dart        # Main UI
 ├── helpers/
-│   └── calculator_controller.dart  # Hisoblash mantig'i (UI'dan ajratilgan)
+│   └── calculator_controller.dart  # Calculation logic (separated from UI)
 ├── widgets/
-│   └── calculator_button.dart      # Qayta ishlatiladigan tugma
+│   └── calculator_button.dart      # Reusable button
 └── core/
-    ├── color/app_colors.dart       # Ranglar
-    ├── theme/theme.dart            # Light/Dark temalar
-    └── responcive/app_responsive.dart  # Ekranga moslashuvchi o'lchamlar
+    ├── color/app_colors.dart       # Colors
+    ├── theme/theme.dart            # Light/Dark themes
+    └── responcive/app_responsive.dart  # Responsive sizing
 ```
 
-Hisoblash mantig‘i (`CalculatorController`) UI’dan to‘liq ajratilgan, shuning
-uchun unit testlar bilan qamrab olingan.
+The calculation logic (`CalculatorController`) is fully separated from the UI,
+which is why it is covered by unit tests.
 
-## Ishga tushirish
+## Getting started
 
 ```bash
 flutter pub get
 flutter run
 ```
 
-## Testlar
+## Tests
 
 ```bash
 flutter test
 ```
 
-Controller mantig‘i uchun 18 ta unit test mavjud (`test/`).
+There are 18 unit tests for the controller logic (`test/`).
 
-## Ishlatilgan paketlar
+## Packages used
 
-- [`math_expressions`](https://pub.dev/packages/math_expressions) — matematik
-  ifodalarni tahlil qilish va hisoblash
+- [`math_expressions`](https://pub.dev/packages/math_expressions) — parsing and
+  evaluating mathematical expressions
 - `cupertino_icons`
 
 ---
 
-Ilova identifikatori: `com.bit_vant.calcmate`
+Application ID: `com.bit_vant.calcmate`
